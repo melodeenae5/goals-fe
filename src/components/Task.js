@@ -26,7 +26,7 @@ const Task = ({ task, setRefreshAll }) => {
 			className='task'
 			style={task.isComplete ? { textDecoration: 'line-through' } : {}}>
 			<p>Category: {task.category}</p>
-			<p>{task.body}</p>
+			<p className='task-body'>{task.body}</p>
 			<button className='btn btn-outline-light' onClick={handleShow}>
 				Edit
 			</button>
