@@ -6,19 +6,21 @@ An application where users can make an account, log goals, make a checklist of r
 
 ## Current Features
 
--Users can create and access their own account
--Users can create goals, describe their goals and set a timeframe in which they want to complete that goal
--Users can create, edit, and delete tasks related to each goal
--Users can mark tasks as completed
--Users can create, edit, and delete notes related to each goal
+- Users can create and access their own account
+- Users can create goals, describe their goals and set a timeframe in which they want to complete that goal
+- Users can create, edit, and delete tasks related to each goal
+- Users can mark tasks as completed
+- Users can create, edit, and delete notes related to each goal
 
 ## Technologies Used
 
 Front End:
--React.js
+
+- React.js
 
 Back End:
--Django with PostgreSQL
+
+- Django with PostgreSQL
 
 ## Installation Instructions
 
