@@ -29,14 +29,28 @@ const Login = ({ setIsAuth }) => {
 			<h4>Login</h4>
 			<form onSubmit={login}>
 				<label htmlFor='username'>Username:</label>
-				<input id='username' type='text' required onChange={handleChange} />
+				<input
+					className='form-control'
+					id='username'
+					type='text'
+					required
+					onChange={handleChange}
+				/>
 				<br></br>
 				<label htmlFor='password'>Password:</label>
-				<input id='password' type='password' required onChange={handleChange} />
+				<input
+					className='form-control'
+					id='password'
+					type='password'
+					required
+					onChange={handleChange}
+				/>
 				<br></br>
-				<button type='submit'>Login</button>
+				<button className='btn btn-info' type='submit'>
+					Login
+				</button>
 				<Link to='/register'>
-					<button>Create Account</button>
+					<button className='btn btn-info'>Create Account</button>
 				</Link>
 			</form>
 		</div>

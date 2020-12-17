@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { apiUrl } from '../config';
+import EditNote from './EditNote';
 
 const Note = ({ note, setRefreshAll }) => {
+	const [show, setShow] = useState(false);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
 	function deleteNote() {
 		const token = localStorage.getItem('token');
 		axios({
@@ -16,11 +22,20 @@ const Note = ({ note, setRefreshAll }) => {
 		});
 	}
 	return (
-		<div class='task'>
+		<div className='task'>
 			<p>{note.body}</p>
-			<button class='task-btn' onClick={deleteNote}>
+			<button className='btn btn-outline-light' onClick={handleShow}>
+				Edit
+			</button>
+			<button className='btn btn-outline-light' onClick={deleteNote}>
 				Delete
 			</button>
+			<EditNote
+				show={show}
+				handleClose={handleClose}
+				setRefreshAll={setRefreshAll}
+				note={note}
+			/>
 		</div>
 	);
 };

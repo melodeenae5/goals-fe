@@ -18,10 +18,18 @@ function App() {
 		history.push('/');
 	}
 	return (
-		<div class='container'>
-			<div class='main'>
-				<h1 class='title'>Achieve Your Goal</h1>
-				{isAuth ? <button onClick={logout}>Logout</button> : <p></p>}
+		<div className='container'>
+			<div className='main'>
+				<h1 className='title'>Achieve Your Goal</h1>
+				{isAuth ? (
+					<button className='btn btn-info' onClick={logout}>
+						Logout
+					</button>
+				) : (
+					<p></p>
+				)}
+				<br></br>
+				******
 				<Route
 					exact
 					path='/'

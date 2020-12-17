@@ -5,15 +5,15 @@ import axios from 'axios';
 import { apiUrl } from '../config';
 
 const EditTask = ({ show, handleClose, setRefreshAll, task }) => {
-	const [editTask, setEditTask] = useState({ big_goal_id: task.big_goal_id });
+	const [editTask, setEditTask] = useState(task);
 	function handleChange(event) {
 		setEditTask({ ...editTask, [event.target.id]: event.target.value });
 	}
 	function editYourTask() {
 		const token = localStorage.getItem('token');
 		axios({
-			method: 'PATCH',
-			url: `${apiUrl}/list_items/${task.id}`,
+			method: 'PUT',
+			url: `${apiUrl}/list_items/${task.id}/`,
 			headers: {
 				Authorization: `Token ${token}`,
 			},
@@ -34,16 +34,23 @@ const EditTask = ({ show, handleClose, setRefreshAll, task }) => {
 						form='editYourTask'
 						id='category'
 						type='text'
-						onChange={handleChange}>
-						{task.category}
-					</textarea>
+						onChange={handleChange}
+						value={editTask.category}></textarea>
 					<br></br>
-					<textarea id='body' form='editYourTask' onChange={handleChange}>
-						{task.body}
-					</textarea>
+					<textarea
+						id='body'
+						form='editYourTask'
+						onChange={handleChange}
+						value={editTask.body}
+					/>
 					<br></br>
 					<label htmlFor='isComplete'>Complete?</label>
-					<input id='isComplete' type='checkbox' onChange={handleChange} />
+					<input
+						id='isComplete'
+						type='checkbox'
+						onChange={handleChange}
+						checked={editTask.isComplete ? 'true' : ''}
+					/>
 				</form>
 			</Modal.Body>
 			<Modal.Footer>

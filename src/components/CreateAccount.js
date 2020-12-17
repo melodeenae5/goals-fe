@@ -24,18 +24,38 @@ const CreateAccount = () => {
 	}
 	return (
 		<div>
-			Create Account
+			<h4>Create Account</h4>
 			<form onSubmit={register}>
 				<label htmlFor='email'>Email:</label>
-				<input id='email' type='email' require onChange={handleChange} />
+				<input
+					className='form-control'
+					id='email'
+					type='email'
+					require
+					onChange={handleChange}
+				/>
 				<br></br>
 				<label htmlFor='username'>Username:</label>
-				<input id='username' type='text' require onChange={handleChange} />
+				<input
+					className='form-control'
+					id='username'
+					type='text'
+					require
+					onChange={handleChange}
+				/>
 				<br></br>
 				<label htmlFor='password'>Password:</label>
-				<input id='password' type='password' require onChange={handleChange} />
+				<input
+					className='form-control'
+					id='password'
+					type='password'
+					require
+					onChange={handleChange}
+				/>
 				<br></br>
-				<button type='submit'>Create Account</button>
+				<button className='btn btn-info' type='submit'>
+					Create Account
+				</button>
 				<Link to='/'>Back</Link>
 			</form>
 		</div>

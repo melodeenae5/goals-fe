@@ -26,7 +26,7 @@ const AddNote = ({ show, handleClose, setRefreshAll, goalId }) => {
 	return (
 		<Modal show={show} onHide={handleClose}>
 			<Modal.Header closeButton>
-				<Modal.Title>Add Task</Modal.Title>
+				<Modal.Title>Add Note</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				<form id='addNote'>

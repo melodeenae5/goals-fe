@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { apiUrl } from '../config';
@@ -14,7 +13,7 @@ const Task = ({ task, setRefreshAll }) => {
 		const token = localStorage.getItem('token');
 		axios({
 			method: 'DELETE',
-			url: `${apiUrl}/list_items/${task.id}`,
+			url: `${apiUrl}/list_items/${task.id}/`,
 			headers: {
 				Authorization: `Token ${token}`,
 			},
@@ -23,13 +22,15 @@ const Task = ({ task, setRefreshAll }) => {
 		});
 	}
 	return (
-		<div class='task'>
+		<div
+			className='task'
+			style={task.isComplete ? { textDecoration: 'line-through' } : {}}>
 			<p>Category: {task.category}</p>
 			<p>{task.body}</p>
-			<button class='task-btn' onClick={handleShow}>
+			<button className='btn btn-outline-light' onClick={handleShow}>
 				Edit
 			</button>
-			<button class='task-btn' onClick={deleteTask}>
+			<button className='btn btn-outline-light' onClick={deleteTask}>
 				Delete
 			</button>
 			<EditTask

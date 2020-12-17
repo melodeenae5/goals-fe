@@ -65,8 +65,10 @@ const GoalDetail = (props) => {
 			<h4>Time: {goal.timeframe}</h4>
 			<p>{goal.description}</p>
 			******
-			<h4 class='italic'>Tasks</h4>{' '}
-			<button onClick={handleShow}>Add Task</button>
+			<h4 className='italic'>Tasks</h4>{' '}
+			<button className='btn btn-light' onClick={handleShow}>
+				Add Task
+			</button>
 			{tasks.map((task) => {
 				if (task.big_goal_id == props.match.params.id) {
 					return <Task task={task} setRefreshAll={setRefreshAll} />;
@@ -74,8 +76,10 @@ const GoalDetail = (props) => {
 			})}
 			<br></br>
 			******
-			<h4 class='italic'>Notes</h4>
-			<button onClick={handleShowNote}>Add Note</button>
+			<h4 className='italic'>Notes</h4>
+			<button className='btn btn-light' onClick={handleShowNote}>
+				Add Note
+			</button>
 			{notes.map((note) => {
 				if (note.big_goal_id == props.match.params.id) {
 					return <Note note={note} setRefreshAll={setRefreshAll} />;

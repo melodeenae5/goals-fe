@@ -31,7 +31,9 @@ const Goals = () => {
 	return (
 		<div>
 			<h3>Your Goals</h3>
-			<button onClick={handleShow}>Add a Goal</button>
+			<button className='btn btn-light' onClick={handleShow}>
+				Add a Goal
+			</button>
 			{goals.map((goal) => {
 				return (
 					<div>
