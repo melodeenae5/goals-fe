@@ -16,7 +16,6 @@ const Login = ({ setIsAuth }) => {
 			url: `${apiUrl}/api-token-auth/`,
 			data: loginInfo,
 		}).then((res) => {
-			console.log(res);
 			if (res.data.token) {
 				localStorage.setItem('token', res.data.token);
 				setIsAuth(true);

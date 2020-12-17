@@ -16,7 +16,6 @@ const CreateAccount = () => {
 			url: `${apiUrl}/auth/users/`,
 			data: regInfo,
 		}).then((res) => {
-			console.log(res);
 			if (res.status == 201) {
 				history.push('/');
 			}
