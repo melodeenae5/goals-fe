@@ -5,9 +5,10 @@ import About from './About';
 const Landing = ({ isAuth, setIsAuth }) => {
 	return (
 		<div>
-			Welcome
-			<About />
+			Welcome!
 			<Login setIsAuth={setIsAuth} />
+			<br></br>
+			<About />
 		</div>
 	);
 };

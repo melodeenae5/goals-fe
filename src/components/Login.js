@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import { apiUrl } from '../config';
 
 const Login = ({ setIsAuth }) => {
 	const [loginInfo, setLoginInfo] = useState({});
@@ -19,7 +20,7 @@ const Login = ({ setIsAuth }) => {
 			if (res.data.token) {
 				localStorage.setItem('token', res.data.token);
 				setIsAuth(true);
-				history.push('/dashboard');
+				history.push('/goals');
 			}
 		});
 	}
@@ -28,11 +29,15 @@ const Login = ({ setIsAuth }) => {
 			Login
 			<form onSubmit={login}>
 				<label htmlFor='username'>Username:</label>
-				<input id='username' type='text' onChange={handleChange} /> <br></br>
+				<input id='username' type='text' required onChange={handleChange} />
+				<br></br>
 				<label htmlFor='password'>Password:</label>
-				<input id='password' type='password' onChange={handleChange} />{' '}
+				<input id='password' type='password' required onChange={handleChange} />
 				<br></br>
 				<button type='submit'>Login</button>
+				<Link to='/register'>
+					<button>Create Account</button>
+				</Link>
 			</form>
 		</div>
 	);
