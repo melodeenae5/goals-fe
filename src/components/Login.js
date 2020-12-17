@@ -13,7 +13,7 @@ const Login = ({ setIsAuth }) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'http://localhost:8000/api-token-auth/',
+			url: `${apiUrl}/api-token-auth/`,
 			data: loginInfo,
 		}).then((res) => {
 			console.log(res);

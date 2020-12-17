@@ -13,7 +13,7 @@ const CreateAccount = () => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'http://localhost:8000/auth/users/',
+			url: `${apiUrl}/auth/users/`,
 			data: regInfo,
 		}).then((res) => {
 			console.log(res);
