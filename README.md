@@ -2,6 +2,8 @@
 
 An application where users can make an account, log goals, make a checklist of related tasks to be completed, and draft notes about their progress.
 
+![screenshot](Achieve_Your_Goal.png)
+
 ## Current Features
 
 -Users can create and access their own account
