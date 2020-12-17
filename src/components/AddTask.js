@@ -4,20 +4,20 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { apiUrl } from '../config';
 
-const AddNote = ({ show, handleClose, setRefreshAll, goalId }) => {
-	const [newNote, setNewNote] = useState({ big_goal_id: goalId });
+const AddTask = ({ show, handleClose, setRefreshAll, goalId }) => {
+	const [newTask, setNewTask] = useState({ big_goal_id: goalId });
 	function handleChange(event) {
-		setNewNote({ ...newNote, [event.target.id]: event.target.value });
+		setNewTask({ ...newTask, [event.target.id]: event.target.value });
 	}
-	function addNote() {
+	function addTask() {
 		const token = localStorage.getItem('token');
 		axios({
 			method: 'POST',
-			url: `${apiUrl}/notes/`,
+			url: `${apiUrl}/list_items/`,
 			headers: {
 				Authorization: `Token ${token}`,
 			},
-			data: newNote,
+			data: newTask,
 		}).then((res) => {
 			setRefreshAll(true);
 			handleClose();
@@ -29,17 +29,27 @@ const AddNote = ({ show, handleClose, setRefreshAll, goalId }) => {
 				<Modal.Title>Add Task</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<form id='addNote'>
+				<form id='addTask'>
+					<input
+						id='category'
+						type='text'
+						onChange={handleChange}
+						placeholder='task category'
+					/>
+					<br></br>
 					<textarea
 						id='body'
-						form='addNote'
+						form='addTask'
 						onChange={handleChange}
-						placeholder='write note here...'></textarea>
+						placeholder='task description...'></textarea>
+					<br></br>
+					<label htmlFor='isComplete'>Complete?</label>
+					<input id='isComplete' type='checkbox' onChange={handleChange} />
 				</form>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button variant='secondary' onClick={addNote}>
-					Add Note
+				<Button variant='secondary' onClick={addTask}>
+					Add Task
 				</Button>
 				<Button variant='secondary' onClick={handleClose}>
 					Close
@@ -49,4 +59,4 @@ const AddNote = ({ show, handleClose, setRefreshAll, goalId }) => {
 	);
 };
 
-export default AddNote;
+export default AddTask;

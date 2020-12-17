@@ -26,7 +26,7 @@ const Login = ({ setIsAuth }) => {
 	}
 	return (
 		<div>
-			Login
+			<h4>Login</h4>
 			<form onSubmit={login}>
 				<label htmlFor='username'>Username:</label>
 				<input id='username' type='text' required onChange={handleChange} />

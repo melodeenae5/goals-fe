@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { apiUrl } from '../config';
 
-const AddGoal = ({ show, handleClose }) => {
+const AddGoal = ({ show, handleClose, setRefreshGoals }) => {
 	const [newGoal, setNewGoal] = useState({});
 	function handleChange(event) {
 		setNewGoal({ ...newGoal, [event.target.id]: event.target.value });
@@ -13,13 +13,13 @@ const AddGoal = ({ show, handleClose }) => {
 		const token = localStorage.getItem('token');
 		axios({
 			method: 'POST',
-			url: 'http://localhost:8000/big_goals/',
+			url: `${apiUrl}/big_goals/`,
 			headers: {
 				Authorization: `Token ${token}`,
 			},
 			data: newGoal,
 		}).then((res) => {
-			console.log(res);
+			setRefreshGoals(true);
 			handleClose();
 		});
 	}
